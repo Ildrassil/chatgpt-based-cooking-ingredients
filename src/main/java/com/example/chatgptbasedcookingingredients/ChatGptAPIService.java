@@ -23,7 +23,7 @@ public class ChatGptAPIService {
         restClient = RestClient.builder()
                 .baseUrl(url)
                 .defaultHeader("Authorization", "Bearer " + key)
-                .defaultHeader("Organisation",org)
+                .defaultHeader("OpenAi-Organization",org)
                 .build();
     }
     public Map<String,String> filterIngredients(String ingredient){

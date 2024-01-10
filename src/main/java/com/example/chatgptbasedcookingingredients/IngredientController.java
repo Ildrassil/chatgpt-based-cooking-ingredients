@@ -27,4 +27,9 @@ public class IngredientController {
         return ingredientMap.entrySet().toString();
     }
 
+    @PostMapping("/recipie")
+    String buildRecipie(@RequestBody String ingredients){
+        return chatGptAPIService.cookingList(ingredients);
+
+    }
 }

@@ -39,6 +39,18 @@ public class ChatGptAPIService {
           ingredientMap.put(ingredient, response.text());}
     return ingredientMap;
     }
+    public String cookingList(String ingredients){
+
+
+        ChatGptResponse response = restClient.post()
+                .uri("/completions")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(new ChatGPTRequest("Built a Cooking recipie for following: " + ingredients +"should look like how much do you need of each ingredient as Bulletpoints and then a description of how to cook it"))
+                .retrieve()
+                .body(ChatGptResponse.class);
+
+        return response.text();
+    }
 
     
 }
